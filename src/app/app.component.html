@@ -11,10 +11,12 @@
     <!-- CUSTOM PIPE per creare un custom pipe devo creare un file con estensione pipe.ts -->
     <!-- creo un file chiamato filter-by-category.pipe.ts in courses -->
     <!-- il pipe filterByCategory viene applicato direttamente al ciclo for e gli viene passato il nome della category che voglio visualizzare -->
+    <!-- il pipe restituisce un array di corsi contenenti solo quelli con la categoria beginner (la categoria la posso cambiare) e il titolo del corso in uppercase -->
     <course-card
       [highlighted]
       *ngFor="let course of courses | filterByCategory : 'BEGINNER'"
       [course]="course"
+      (courseChanged)="onCourseChanged($event)"
     >
       <course-image [src]="course.iconUrl"></course-image>
     </course-card>

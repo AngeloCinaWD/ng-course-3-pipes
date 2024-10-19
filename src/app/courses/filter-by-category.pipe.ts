@@ -12,6 +12,18 @@ export class FilterByCategoryPipe implements PipeTransform {
   //   il secondo argomento è quello che vogliamo filtare, nel nostro caso è il valore BEGINNER
   // quello che restituisce il metodo transform è quello che restituirà il pipe
   transform(courses: Course[], category: string) {
-    return courses.filter((course) => course.category === category);
+    let newArrayCourses: Course[] = [];
+
+    courses.forEach((course) => {
+      newArrayCourses.push({
+        ...course,
+        description: course.description.toUpperCase(),
+      });
+    });
+
+    return newArrayCourses.filter((course) => course.category === category);
+    // return courses
+    //   .filter((course) => course.category === category)
+    //   .map((course) => course.description.toUpperCase());
   }
 }
