@@ -5,9 +5,11 @@
   />
 </div>
 
+<button (click)="editCategory()">Edit category</button>
+
 <div>
-  <h1>Corsi tramite variabile courses$ ed alias courses</h1>
-  <div class="courses" *ngIf="courses$ | async as courses">
+  <h1>Corsi tramite variabile coursesDaFile ed alias courses</h1>
+  <div class="courses" *ngIf="coursesDaFile as courses">
     <!-- CUSTOM PIPE per creare un custom pipe devo creare un file con estensione pipe.ts -->
     <!-- creo un file chiamato filter-by-category.pipe.ts in courses -->
     <!-- il pipe filterByCategory viene applicato direttamente al ciclo for e gli viene passato il nome della category che voglio visualizzare -->

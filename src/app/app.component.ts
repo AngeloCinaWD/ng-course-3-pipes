@@ -89,6 +89,8 @@ export class AppComponent implements OnInit {
   // SERVICES, i services ci consentono di creare metodi riutilizzabili nel progetto, ad esempio interrogare un DB ed ottenere dati da utilizzare
   // per utilizzare un service mi basta iniettarlo nel costruttore della classe dove mi serve utilizzarlo
 
+  coursesDaFile: Course[] = COURSES;
+
   // i corsi non li prendo più direttamente dal file db-data, ma li definerò tramite chiamata get http
   // courses = COURSES;
   courses: Course[];
@@ -169,5 +171,9 @@ export class AppComponent implements OnInit {
     this.coursesService
       .saveCourse(course)
       .subscribe((value) => console.log(value.description));
+  }
+
+  editCategory() {
+    this.coursesDaFile[1].category = "ADVANCED";
   }
 }
