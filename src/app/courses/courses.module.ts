@@ -5,16 +5,16 @@ import { CourseImageComponent } from "./course-image/course-image.component";
 import { HighlightedDirective } from "./directives/highlighted.directive";
 import { NgxUnlessDirective } from "./directives/ngx-unless.directive";
 import { CoursesService } from "./courses.service";
+import { FilterByCategoryPipe } from "./filter-by-category.pipe";
 
-// il CommonModule contiene tutte le direttive di ng, in app.module.ts non c'è perchè è una dipendenza del BrowserModule
-// per utilizzare questo modulo lo dobbiamo importare e registrare negli imports di app.module.ts
-// per creare un modulo a se stante devo spostare nella cartella src/app/courses tutto quello che dovò importare qui e registrarlo nelle declarations
+// il custom pipe va dichiarato nelle declarations del modulo
 @NgModule({
   declarations: [
     CourseCardComponent,
     CourseImageComponent,
     HighlightedDirective,
     NgxUnlessDirective,
+    FilterByCategoryPipe,
   ],
   imports: [CommonModule],
   // tutto quello che deve essere visibile all'esterno del modulo deve essere indicato qui
@@ -23,6 +23,7 @@ import { CoursesService } from "./courses.service";
     CourseImageComponent,
     HighlightedDirective,
     NgxUnlessDirective,
+    FilterByCategoryPipe,
   ],
   providers: [CoursesService],
 })
